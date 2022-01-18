@@ -12,6 +12,11 @@ int main()
 		q = &c;
 	}						// Now q is a dangling pointer since c does not exist anymore
 	
-	char* s;
-	*s = *q;				// Dereferencing q may lead to a seg fault or worse undefined behaviour
+	*q;						// Dereferencing q may lead to a seg fault or worse undefined behaviour
+
+	char a[] = "hello world";
+	char b = a[20];			// Buffer overflow may resukt in segmentation fault
+
+	int arr[4] = { 1, 2, 3, 4 };
+	int num = arr[10];		// Buffer overflow may resukt in segmentation fault
 }
